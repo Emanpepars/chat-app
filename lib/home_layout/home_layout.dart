@@ -26,7 +26,8 @@ class HomeScreen extends StatelessWidget {
             Navigator.pushNamed(context, Routes.profile);
           },
           icon: CircleAvatar(
-            backgroundImage: CachedNetworkImageProvider(initUser.userModel?.image??AppImages.fakeImage),
+            backgroundImage: CachedNetworkImageProvider(
+                initUser.userModel?.image ?? AppImages.fakeImage),
             radius: 20,
           ),
         ),

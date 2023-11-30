@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../models/user_model.dart';
 import '../../reusable/utils/App_styles.dart';
 import '../../reusable/utils/app_colors.dart';
+
 class FriendProfileScreen extends StatelessWidget {
   final UserModel args;
 

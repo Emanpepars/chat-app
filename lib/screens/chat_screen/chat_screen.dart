@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:chat_app/provider/init_user_provider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -49,8 +50,6 @@ class ChatScreen extends StatelessWidget {
               radius: 20,
             ),
           ),
-
-
           SizedBox(
             width: 10.w,
           ),
@@ -108,17 +107,27 @@ class ChatScreen extends StatelessWidget {
             TextField(
               controller: chatProvider.messageController,
               onSubmitted: (value) {
-                chatProvider.addMessageFireBase(value, args);
+                chatProvider.addMessageFireBase(
+                  value,
+                  args,
+                );
               },
               cursorColor: AppColors.primary,
               decoration: InputDecoration(
                 hintText: "send Message",
                 suffixIcon: IconButton(
-                    onPressed: () {
-                      chatProvider.addMessageFireBase(
-                          chatProvider.messageController.text, args);
-                    },
-                    icon: const Icon(Icons.send, color: AppColors.primary)),
+                  onPressed: () {
+                    ChatProvider.getFirebaseMessagingToken();
+                    chatProvider.addMessageFireBase(
+                      chatProvider.messageController.text,
+                      args,
+                    );
+                  },
+                  icon: const Icon(
+                    Icons.send,
+                    color: AppColors.primary,
+                  ),
+                ),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12),
                 ),

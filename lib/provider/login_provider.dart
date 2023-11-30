@@ -12,7 +12,7 @@ class LoginProvider extends ChangeNotifier {
 
    final GlobalKey<FormState> loginFormKey = GlobalKey<FormState>();
 
-  static CollectionReference<UserModel> getUserCollection() {
+   static CollectionReference<UserModel> getUserCollection() {
     return FirebaseFirestore.instance.collection('Users').withConverter(
           fromFirestore: (snapshot, _) => UserModel.fromJson(snapshot.data()!),
           toFirestore: (user, options) => user.toJson(),
@@ -32,7 +32,7 @@ class LoginProvider extends ChangeNotifier {
     return userModel;
   }
 
-   void loginFireBase(context, InitUserProvider initUserProvider) async {
+   void loginFireBase(context, InitUserProvider initUserProvider ) async {
     if (loginFormKey.currentState!.validate()) {
       getUserCollection();
       try {

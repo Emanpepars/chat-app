@@ -9,13 +9,18 @@ import 'package:provider/provider.dart';
 
 
 import 'app.dart';
+import 'firebase_messaging.dart';
 import 'firebase_options.dart';
+
+final navigatorKey = GlobalKey<NavigatorState>();
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  FirebaseMessagingService().initialize();
+
   //Firebase FireStore.instance.disableNetwork();
   runApp(
     MultiProvider(

@@ -13,6 +13,7 @@ import '../../reusable/utils/app_styles.dart';
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key}) : super(key: key);
 
+
   @override
   Widget build(BuildContext context) {
     var initUserProvider = Provider.of<InitUserProvider>(context);

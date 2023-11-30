@@ -102,6 +102,7 @@ class RegisterProvider extends ChangeNotifier {
           name: nameController.text,
           phone: phoneController.text,
           image: imageUrl,
+          pushToken: '',
         );
         addUser(userModel).then(
           (value) => Navigator.pushReplacementNamed(context, Routes.login),
